@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Showing your feed {% endblock %}</h1>
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <span class="badge badge-success">Created by: {{ post.username }}</span>
+        <br>
+        <span class="badge badge-info">Created on: {{ post.created }}</span>
+        <br>
+        <span class="badge badge-dark">Geo-Location: {{ post.longitude, post.latitude}}</span>
+        <br>
+        {% if post.url %}
+            <span class="badge badge-danger">Content Type: {{ post.type }}</span>
+            <br>
+            {% if post.type == "image" %}
+                <img src= {{ post.url }}>
+                <br>
+            {% endif %}
+            {% if post.type == "video" %}
+                <video width="400" controls>
+                    <source src={{ post.url }}>
+                </video>
+                <br>
+            {% endif %}
+        {% endif %}
+        <br>
+        <h3>{{ post.content }}</span></h3>
+    <b><hr></b>     
+    {% endfor %}
+{% endblock %}

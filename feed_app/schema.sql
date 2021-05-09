@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT,
+    longitude TEXT NOT NULL,
+    latitude TEXT NOT NULL,
+    url TEXT,
+    type TEXT,
+    uuid TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    uuid TEXT NOT NULL
+)
